@@ -1,0 +1,22 @@
+<h1>HELLO,</h1>
+
+<div class="container">
+  <h2 class="float-left">What do you want to eat?</h2>
+
+  <button type="button" class="btn btn-outline-secondary float-right"><%= link_to 'Create new', new_restaurant_path(@restaurant) %></button>
+
+
+<div class="card" style="width: 18rem;" class="d-flex align-content-around flex-wrap">
+  <div class="card-body" class="flex">
+    <% @restaurants.each do |t| %>
+    <h5 class="card-title"><%= link_to t.name, restaurant_path(t.id) %></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= t.category %></h6>
+    <p class="card-text"><%= t.address %>, <%= t.phone_number %></p>
+    <button type="button" class="btn btn-secondary btn-sm">
+      <%= link_to 'Add Review', new_restaurant_review_path(t.id) %>
+    </button>
+    <% end %>
+  </div>
+</div>
+</div>
+
